@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.moran.com/home/service/soap/stubs"
+	targetNamespace="http://www.moran.com/home/service/soap/stubs">
+	<element name="registrationRequest">
+		<complexType>
+			<sequence>
+				<element name="userName" type="string"></element>
+				<element name="email" type="string"></element>
+				<element name="fullName" type="string"></element>
+				<element name="password" type="string"></element>
+				<element name="address" type="tns:address"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="registrationResponse">
+		<complexType>
+			<sequence>
+				<element name="fullName" type="string"></element>
+				<element name="success" type="boolean"></element>
+				<element name="registrationSequence" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="address">
+		<sequence>
+			<element name="id" type="string"></element>
+			<element name="addressLine" type="string"></element>
+			<element name="city" type="string"></element>
+			<element name="district" type="string"></element>
+			<element name="state" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="pin">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="100000"></minInclusive>
+						<maxInclusive value="999999"></maxInclusive>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+
+</schema>
