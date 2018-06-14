@@ -28,7 +28,6 @@ public class RegistrationEndpoint {
 		boolean isRegistered = registrationService.register(request);
 		if (isRegistered) {
 			logger.info("User Registered");
-			response.setFullName(request.getFullName());
 			response.setRegistrationSequence(MD5Encoder.encode(request.getUserName().getBytes()));
 			response.setSuccess(isRegistered);
 		} else {

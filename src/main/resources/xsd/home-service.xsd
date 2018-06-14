@@ -7,8 +7,10 @@
 			<sequence>
 				<element name="userName" type="string"></element>
 				<element name="email" type="string"></element>
-				<element name="fullName" type="string"></element>
 				<element name="password" type="string"></element>
+				<element name="firstName" type="string"></element>
+				<element name="middleName" type="string"></element>
+				<element name="lastName" type="string"></element>
 				<element name="address" type="tns:address"></element>
 			</sequence>
 		</complexType>
@@ -26,7 +28,6 @@
 
 	<complexType name="address">
 		<sequence>
-			<element name="id" type="string"></element>
 			<element name="addressLine" type="string"></element>
 			<element name="city" type="string"></element>
 			<element name="district" type="string"></element>

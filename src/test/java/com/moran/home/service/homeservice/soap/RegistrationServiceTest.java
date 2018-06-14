@@ -40,7 +40,6 @@ public class RegistrationServiceTest {
 		WebServiceTemplate ws = new WebServiceTemplate(marshaller);
 		RegistrationRequest request = new RegistrationRequest();
 		request.setUserName("rahul");
-		request.setFullName("Rahul Mohan");
 		request.setEmail("rahul@test.com");
 		Address address = new Address();
 		address.setAddressLine("Ushapur");
