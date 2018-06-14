@@ -41,11 +41,18 @@ public class RegistrationServiceTest {
 		RegistrationRequest request = new RegistrationRequest();
 		request.setUserName("rahul");
 		request.setEmail("rahul@test.com");
+		request.setPassword("rahul");
+		request.setFirstName("RAHUL");
+		request.setLastName("MOHAN");
+
 		Address address = new Address();
 		address.setAddressLine("Ushapur");
 		address.setCity("Moranhat");
+		address.setDistrict("Sibsagar");
+		address.setState("Assam");
 		address.setCountry("india");
 		address.setPin(785670);
+
 		request.setAddress(address);
 
 		assertNotNull(ws.marshalSendAndReceive("http://localhost:" + port + "/ws", request));
