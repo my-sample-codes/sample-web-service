@@ -31,7 +31,7 @@ public class RegistrationProcessor implements Processor {
 		User user = (User) SerializationUtils.deserialize(exchange.getIn().getBody(byte[].class));
 		addressRepository.save(user.getAddress());
 		userRepository.save(user);
-		exchange.getOut().setBody("User registered deiiiiiiiiiiiiiiii");
+		exchange.getOut().setBody("User registered by Registration Processor");
 	}
 
 }

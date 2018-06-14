@@ -34,9 +34,12 @@ public class RegistrationRoute extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("rabbitmq://localhost:5672/" + MqUtils.USER_EXCHANGE + "?queue=" + MqUtils.USER_REG_QUEUE
-				+ "&autoAck=true&autoDelete=false&durable=true&exchangeType=direct&connectionFactory=#camelRabbitConnectionFactory")
-						.to("registrationProcessor").to("log:foo");
+		try {
+			from("rabbitmq://localhost:5672/" + MqUtils.USER_EXCHANGE + "?queue=" + MqUtils.USER_REG_QUEUE
+					+ "&autoAck=true&autoDelete=false&durable=true&exchangeType=direct&connectionFactory=#camelRabbitConnectionFactory")
+							.to("registrationProcessor").to("log:foo");
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		}
 	}
-
 }
