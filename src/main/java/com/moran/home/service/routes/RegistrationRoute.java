@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import com.moran.home.service.mq.utils.MqUtils;
+import com.moran.home.service.mq.utils.MqConstants;
 import com.rabbitmq.client.ConnectionFactory;
 
 @Component
@@ -35,8 +35,8 @@ public class RegistrationRoute extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		try {
-			from("rabbitmq://localhost:5672/" + MqUtils.USER_EXCHANGE + "?queue=" + MqUtils.USER_REG_QUEUE
-					+ "&autoAck=true&autoDelete=false&durable=true&exchangeType=direct&connectionFactory=#camelRabbitConnectionFactory")
+			from("rabbitmq://localhost:5672/" + MqConstants.USER_EXCHANGE + "?queue=" + MqConstants.USER_REG_QUEUE
+					+ "&autoAck=true&autoDelete=false&durable=true&exchangeType=topic&connectionFactory=#camelRabbitConnectionFactory")
 							.to("registrationProcessor").to("log:foo");
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);

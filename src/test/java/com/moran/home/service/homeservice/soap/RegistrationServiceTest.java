@@ -39,7 +39,7 @@ public class RegistrationServiceTest {
 		logger.info("Testing started......");
 		WebServiceTemplate ws = new WebServiceTemplate(marshaller);
 		RegistrationRequest request = new RegistrationRequest();
-		request.setUserName("rahul");
+		request.setUserName("madhurima");
 		request.setEmail("rahul@test.com");
 		request.setPassword("rahul");
 		request.setFirstName("RAHUL");
