@@ -13,7 +13,7 @@ import com.moran.home.service.repository.UserRepository;
 
 import reactor.core.publisher.Mono;
 
-@Component
+@Component(value="homeServiceUserHandler")
 public class UserHandler {
 	private static final Logger logger = LoggerFactory.getLogger(UserHandler.class);
 

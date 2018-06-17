@@ -16,7 +16,7 @@ public class UserRouter {
 	private static final Logger logger = LoggerFactory.getLogger(UserRouter.class);
 
 	@Bean(name = "hellomoto")
-	public RouterFunction<ServerResponse> route(UserHandler userHandler) {
+	public RouterFunction<ServerResponse> monoRouterFunction(UserHandler userHandler) {
 		logger.info("Entering the ROUTER........................................");
 		return RouterFunctions.route(RequestPredicates.GET("/user").and(RequestPredicates.contentType(MediaType.APPLICATION_JSON)), userHandler::user);
 	}
